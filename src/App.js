@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Particles from 'react-particles-js';
+import {particlesConfig} from './resource/particlesjs-config.js';
 import './App.css';
 
 class App extends Component {
@@ -7,11 +8,27 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src="/favicon-96x96.png" className="App-logo" alt="logo" />
+          <h1 className="App-title">Get It Done</h1>
         </header>
+        <Particles 
+          params={ particlesConfig } 
+          style={ { 
+            position:'absolute',
+            width:'100%',
+            height:'100%',
+            left:0,
+            right:0,
+            top:0,
+            bottom:0,
+            zIndex:-1
+          } }
+       />
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          
+        </p>
+        <p className="App-intro">
+          
         </p>
       </div>
     );
