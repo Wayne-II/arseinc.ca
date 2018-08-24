@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# other
+/research
+
 # production
 /build
 
