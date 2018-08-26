@@ -10,19 +10,28 @@ import Hardware from './components/hardware.js';
 import Social from './components/social.js';
 
 class App extends Component {
+  mouseInHandler(){
+    console.log( 'asdf');
+      this.setState( { highlight:true } );
+  }
+  mouseOutHandler(){
+    console.log( 'fdsa')
+      this.setState( { highlight:false } );
+  }
+
   render() {
     return (
       <div className="App" style={{height:'100%'}}>
         <header className="App-header">
           <img src="/favicon-96x96.png" className="App-logo" alt="logo" />
-          <h1 className="App-title">CArse Consulting</h1>
+          <h1 className="App-title" style={{fontFamily:'Rajdhani'}}>CArse Consulting</h1>
         </header>
         <Particles 
           params={ particlesConfig } 
           style={ { 
             position:'absolute',
             width:'100%',
-            height:'calc( 100% - 150px - 20px * 2 )',
+            height:'calc( 100% - 75px)',
             left:0,
             right:0,
             top:0,
@@ -31,10 +40,10 @@ class App extends Component {
           } }
         />
         <div style={ flexContainerStyle }>
-          <Database style={ flexItemStyle } />
-          <Software style={ flexItemStyle } />
-          <SystemsAdministration style={ flexItemStyle } />
-          <Hardware style={ flexItemStyle } />
+          <Database mouseInHandler={this.mouseInHandler} mouseOutHandler={this.mouseOutHandler} style={ flexItemStyle } />
+          <Software mouseInHandler={this.mouseInHandler} mouseOutHandler={this.mouseOutHandler} style={ flexItemStyle } />
+          <SystemsAdministration mouseInHandler={this.mouseInHandler} mouseOutHandler={this.mouseOutHandler} style={ flexItemStyle } />
+          <Hardware mouseInHandler={this.mouseInHandler} mouseOutHandler={this.mouseOutHandler} style={ flexItemStyle } />
           <Social style={ { ...flexItemStyle, width:'100%', height:'20%' } } />
         </div>
       </div>
@@ -44,7 +53,7 @@ class App extends Component {
 
 const flexContainerStyle = {
   display: 'inline-felx',
-  height:'calc( 100% - 150px - 20px * 2 )', 
+  height:'calc( 100% - 75px )', 
   flexFlow: 'row wrap',
   justifyContent: 'space-around',
   alignItems: 'center',
@@ -57,11 +66,14 @@ const flexItemStyle = {
   flexDirection: 'row',
   width:'40%',
   alignSelf: 'center',
-  alignItems: 'center',
+  alignItems: 'flex-end',
   justifyContent:'space-around',
   height:'calc( 40% )',
-  
-  /*border:'thin solid #ff0000'*/
+  fontSize: '2em',
+  backgroundSize:'cover',
+  backgroundRepeat:'no-repeat',
+  backgroundPosition:'center',
+  boxShadow: '25px 25px 50px 20px #222 inset, -25px -25px 50px 20px #222 inset' 
 }
 
 export default App;
